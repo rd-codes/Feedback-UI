@@ -1,0 +1,180 @@
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --success-color: #2ecc71;
+    --background-color: #ecf0f1;
+    --text-color: #2c3e50;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--background-color);
+    color: var(--text-color);
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+}
+  
+.container {
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    padding: 2rem;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    transform: translateY(0);
+    transition: var(--transition);
+}
+
+.container:hover {
+    transform: translateY(-5px);
+}
+  
+.heading {
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+  
+.ratings-container {
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+  
+.rating {
+    cursor: pointer;
+    padding: 1rem;
+    margin: 0.5rem;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    min-width: 120px;
+}
+  
+.rating:hover,
+.rating.active {
+    background: var(--secondary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.rating.active {
+    background: var(--success-color);
+}
+
+.rating:hover small,
+.rating.active small {
+    color: white;
+}
+  
+.btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    margin: 1rem 0;
+    border-radius: 8px;
+    padding: 0.8rem 2rem;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: var(--transition);
+    opacity: 0.7;
+}
+
+.btn:not([disabled]) {
+    opacity: 1;
+}
+  
+.btn:not([disabled]):hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+  
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn[disabled] {
+    cursor: not-allowed;
+}
+  
+.rating img {
+    width: 40px;
+    height: 40px;
+    transition: var(--transition);
+}
+
+.rating:hover img {
+    transform: scale(1.1);
+}
+
+.rating small {
+    color: var(--text-color);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+/* Success message styles */
+.success-message {
+    text-align: center;
+    padding: 2rem;
+}
+
+.success-message strong {
+    font-size: 1.5rem;
+    color: var(--success-color);
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.success-message p {
+    color: var(--text-color);
+    margin: 1rem 0;
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+    .container {
+        padding: 1rem;
+        width: 95%;
+    }
+
+    .heading {
+        font-size: 1.5rem;
+    }
+
+    .rating {
+        min-width: 100px;
+        padding: 0.8rem;
+    }
+
+    .rating img {
+        width: 35px;
+        height: 35px;
+    }
+}
